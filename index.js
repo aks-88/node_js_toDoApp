@@ -3,27 +3,25 @@ const app=express();
 
 const request= require("request");
 const bodyParser= require("body-parser");
+const dateDay= require(__dirname+"/date.js");
 
+console.log(dateDay.getDate());
 var items= [];
 // const ejs= require("ejs");
 
 //using  ejs
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
+
 app.set("view engine", "ejs");
+ 
 
 //rendering list
 
 app.get("/", function(req, res){
     // res.sendFile(__dirname+"/index.html");
-    var today= new Date();
-    var options= {
-        weekday:"long",
-        day:"numeric",
-        month:"long"
-
-    }
-    var getDay= today.toLocaleDateString("en-US",options);
+    let getDay=dateDay.getDate();
     console.log(getDay)
     // if (today.getDay() ===5||today.getDay() ===0){
     //     res.send("Yay it's the weekend");
@@ -42,7 +40,7 @@ app.get("/", function(req, res){
 app.get("/stagging", function(req, res){
     res.sendFile(__dirname+"/index.html");
     var today= new Date();
-    console.log(today.getDay())
+    console.log(today.getDay());
     // if (today.getDay() ===5||today.getDay() ===0){
     //     res.send("Yay it's the weekend");
     // } else{

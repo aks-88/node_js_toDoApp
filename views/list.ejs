@@ -1,25 +1,35 @@
 <html>
     <title>My calculator</title>
+    <head>
+        <title>To Do List</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
     <body>
-        <h1>Calculator</h1>
-        <!-- <form action="/" method="post">
-            <input type="text" name="num1" placeholder="enter number1">
-            <input type="text" name="num2" placeholder="enter number2">
-            <button type="submit" name="sumbit">Calculate</button>
+        <div class="box" id="heading">
+            <h1> <%= kindOfDay %></h1>
 
-        </form> -->
-        <h1>It's a <%= kindOfDay %></h1>
-        <ul>
-            <% for (var i=0;i<= newListItems.length;i++){ %>
-                <li><%= newListItems[i] %></li>
-            <%} %>
-        </ul>
+        </div>
+        <div class="box">
+            
+                <% for (var i=0;i<= newListItems.length;i++){ %>
+                    <div class="item">
+                        <input type="checkbox">
+                      <p><%= newListItems[i] %></p>  
+                    </div>
+                    
+                <%} %>
+            
+            <form action="/" class="item" method="post">
+                <input type="text" name="newListItem" placeholder="New item" autocomplete="off">
+                <button type="submit" name="button">+</button> 
+    
+            </form>
 
-        <form action="/" method="post">
-            <input type="text" name="newListItem" placeholder="Today's task">
-            <button type="submit" name="button">Add</button> 
+        </div>
+        
+        
 
-        </form>
+        
     </body>
     <footer>
 
