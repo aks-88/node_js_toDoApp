@@ -35,7 +35,7 @@ const item2 = new Item({
 
 
 const item3 = new Item({
-  name:"Welcome to do your third  list"
+  name:"Welcome to do your smart  list"
 });
 
 const defaultNames= [item1, item2, item3];
